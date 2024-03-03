@@ -40,6 +40,6 @@ class HomeController extends Controller
             toastr()->error('User not found');
             return back();
         }
-        return view('pages.user-profile')->with('user', $user);
+        return view('pages.user')->with('user', $user);
     }
 }

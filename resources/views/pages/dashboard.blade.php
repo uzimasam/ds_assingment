@@ -53,7 +53,7 @@
                                         </td>
                                         <td class="float-end">
                                             <div class="col text-center">
-                                                <a href="{{ route('user', $user->id) }}" class="btn btn-sm my-1 bg-primary text-white text-sm mb-0">
+                                                <a href="{{ route('user', $user->username) }}" class="btn btn-sm my-1 bg-primary text-white text-sm mb-0">
                                                     View Profile
                                                 </a>
                                             </div>
