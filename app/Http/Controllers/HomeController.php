@@ -32,4 +32,14 @@ class HomeController extends Controller
         $users = User::all();
         return view('pages.dashboard')->with('users', $users);
     }
+
+    public function show($username)
+    {
+        $user = User::where('username', $username)->first();
+        if (!$user) {
+            toastr()->error('User not found');
+            return back();
+        }
+        return view('pages.user-profile')->with('user', $user);
+    }
 }

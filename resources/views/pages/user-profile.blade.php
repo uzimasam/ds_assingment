@@ -41,7 +41,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Username</label>
-                                        <input class="form-control" type="text" name="username" value="{{ old('username', auth()->user()->username) }}" disabled required>
+                                        <input class="form-control" type="text" name="username" value="{{ old('username', auth()->user()->username) }}" readonly required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
