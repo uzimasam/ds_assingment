@@ -15,15 +15,13 @@ class UserProfileController extends Controller
     public function update(Request $request)
     {
         $attributes = $request->validate([
-            'username' => ['required','max:255', 'min:2'],
+            'username' => ['required','max:255', 'min:2', Rule::unique('users')->ignore(auth()->user()->id),],
             'firstname' => ['max:100'],
             'lastname' => ['max:100'],
             'email' => ['required', 'email', 'max:255',  Rule::unique('users')->ignore(auth()->user()->id),],
             'address' => ['max:100'],
-            'city' => ['max:100'],
-            'country' => ['max:100'],
-            'postal' => ['max:100'],
-            'about' => ['max:255']
+            'mobile_number' => ['max:100'],
+            'registration_number' => ['max:100', Rule::unique('users')->ignore(auth()->user()->id),],
         ]);
 
         auth()->user()->update([
@@ -32,11 +30,11 @@ class UserProfileController extends Controller
             'lastname' => $request->get('lastname'),
             'email' => $request->get('email') ,
             'address' => $request->get('address'),
-            'city' => $request->get('city'),
-            'country' => $request->get('country'),
-            'postal' => $request->get('postal'),
-            'about' => $request->get('about')
+            'mobile_number' => $request->get('mobile_number'),
+            'registration_number' => $request->get('registration_number'),
         ]);
-        return back()->with('succes', 'Profile succesfully updated');
+
+        toastr()->success('Profile succesfully updated');
+        return back();
     }
 }
