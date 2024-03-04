@@ -63,28 +63,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <hr class="horizontal dark">
-                            <p class="text-uppercase text-sm">Contact Information</p>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Address</label>
-                                        <input class="form-control" type="text" name="address" value="{{ old('address', auth()->user()->address) }}" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Mobile Number</label>
-                                        <input class="form-control" type="text" name="mobile_number" value="{{ old('mobile_number', auth()->user()->mobile_number) }}" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Reg Number</label>
-                                        <input class="form-control" type="text" name="registration_number" value="{{ old('registration_number', auth()->user()->registration_number) }}" required>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </form>
                 </div>
