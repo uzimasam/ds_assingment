@@ -63,4 +63,21 @@ class HomeController extends Controller
         toastr()->success('Contact succesfully added');
         return back();
     }
+
+    public function search(Request $request)
+    {
+        $attributes = $request->validate([
+            'search' => 'required|max:255',
+        ]);
+        $search = $attributes['search'];
+        $contacts = Contact::where('registration_number', 'like', '%' . $attributes['search'] . '%')
+            ->where('user_id', auth()->user()->id)
+            ->get();
+        // highlight the search term in the results
+        foreach ($contacts as $contact) {
+            $contact->registration_number = str_replace($search, "<span class='text-primary'>$search</span>", $contact->registration_number);
+        }
+
+        return view('pages.search')->with(['contacts' => $contacts, 'search' => $search]);
+    }
 }

@@ -1,7 +1,7 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'Dashboard'])
+    @include('layouts.navbars.auth.topnav', ['title' => 'Search Results'])
     <div class="container-fluid py-4">
         <!-- Create a search bar -->
         <div class="row">
@@ -10,14 +10,15 @@
                     <div class="card-body">
                         <div class="row d-flex justify-content-between align-items-center">
                             <div class="col-md-6">
-                                <h6 class="text-primary">Welcome to your dashboard</h6>
-                                <p class="text-xs text-dark">Here you can view and manage your contacts</p>
+                                <h6 class="text-primary">Welcome to the search results page</h6>
+                                <p class="text-xs text-dark">Showing search results for <strong>{{ $search }}</strong></p>
+                                <p class="text-xs text-dark">{{ $contacts->count() }} contacts found</p>
                             </div>
                             <div class="col-md-6">
                                 <form role="form" method="POST" action="{{ route('search') }}">
                                     @csrf
                                     <div class="input-group">
-                                        <input type="search" class="rounded-pill p-2 border border-primary form-control" placeholder="Search contacts by Reg-Number and hit enter" aria-label="Search Contacts" aria-describedby="search-addon" name="search" required>
+                                        <input type="search" class="rounded-pill p-2 border border-primary form-control" placeholder="Search contacts by Reg-Number and hit enter" aria-label="Search Contacts" aria-describedby="search-addon" name="search" required value="{{ $search }}">
                                     </div>
                                 </form>
                             </div>
@@ -41,7 +42,7 @@
                     <div class="table-responsive mt-2">
                         <table class="table align-items-center table-striped table-flush">
                             <tbody>
-                                @forelse(auth()->user()->contacts as $contact)
+                                @forelse($contacts as $contact)
                                     <tr>
                                         <td>
                                             <div class="d-flex px-2 py-1 align-items-center">
@@ -75,7 +76,7 @@
                                         <td class="align-middle text-sm">
                                             <div class="col text-center">
                                                 <p class="text-xs font-weight-bold mb-0">Reg-Number:</p>
-                                                <h6 class="text-sm mb-0">{{ $contact->registration_number ?? 'N/A' }}</h6>
+                                                <h6 class="text-sm mb-0">{!! $contact->registration_number ?? 'N/A' !!}</h6>
                                             </div>
                                         </td>
                                     </tr>

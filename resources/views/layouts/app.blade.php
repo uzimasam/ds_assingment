@@ -31,7 +31,7 @@
         @if (in_array(request()->route()->getName(), ['login', 'register']))
             @yield('content')
         @else
-            <div class="min-height-400 bg-primary position-absolute w-100"></div>
+            <div class="min-height-300 bg-primary position-absolute w-100"></div>
             <main class="main-content border-radius-lg">
                 @yield('content')
             </main>
