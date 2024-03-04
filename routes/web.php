@@ -24,4 +24,5 @@ use App\Http\Controllers\ChangePassword;
     Route::post('/profile', [UserProfileController::class, 'update'])->name('profile.update')->middleware('auth');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
     Route::post('/search', [HomeController::class, 'search'])->name('search')->middleware('auth');
-    Route::get('/u/{username}', [HomeController::class, 'show'])->name('user')->middleware('auth');
+    Route::get('/c/{id}', [HomeController::class, 'show'])->name('contact')->middleware('auth');
+    Route::post('/contact', [HomeController::class, 'store'])->name('contact.store')->middleware('auth');
