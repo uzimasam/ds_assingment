@@ -21,12 +21,16 @@
                                             @error('username') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
                                         </div>
                                         <div class="flex flex-col mb-3">
-                                            <input type="email" name="email" class="form-control form-control-lg" value="{{ old('email') }}" aria-label="Email" aria-describedby="email-addon" placeholder="Email" required>
-                                            @error('email') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
+                                            <input type="text" name="firstname" class="form-control form-control-lg" value="{{ old('firstname') }}" aria-label="First Name" aria-describedby="firstname-addon" placeholder="First Name" required>
+                                            @error('firstname') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
                                         </div>
                                         <div class="flex flex-col mb-3">
-                                            <input type="text" name="address" class="form-control form-control-lg" value="{{ old('address') }}" aria-label="Address" aria-describedby="address-addon" placeholder="Address" required>
-                                            @error('address') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
+                                            <input type="text" name="lastname" class="form-control form-control-lg" value="{{ old('lastname') }}" aria-label="Last Name" aria-describedby="lastname-addon" placeholder="Last Name" required>
+                                            @error('lastname') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
+                                        </div>
+                                        <div class="flex flex-col mb-3">
+                                            <input type="email" name="email" class="form-control form-control-lg" value="{{ old('email') }}" aria-label="Email" aria-describedby="email-addon" placeholder="Email" required>
+                                            @error('email') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
                                         </div>
                                         <div class="flex flex-col mb-3">
                                             <input type="password" name="password" class="form-control form-control-lg" aria-label="Password" required placeholder="Password">
@@ -37,7 +41,7 @@
                                             @error('password_confirmation') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
                                         </div>
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Sign in</button>
+                                            <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Sign up</button>
                                         </div>
                                     </form>
                                 </div>
