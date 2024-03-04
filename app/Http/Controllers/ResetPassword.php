@@ -30,10 +30,10 @@ class ResetPassword extends Controller
         if ($user) {
             $this->notify(new ForgotPassword($user->id));
             toastr()->success('Password reset link sent to your email');
-            return back()->with('success', 'Password reset link sent to your email');
+            return back();
         }
 
         toastr()->error('User not found');
-        return back()->with('error', 'User not found');
+        return back();
     }
 }

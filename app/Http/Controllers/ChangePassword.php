@@ -40,7 +40,7 @@ class ChangePassword extends Controller
             return redirect('login');
         } else {
             toastr()->error('Your email does not match the email who requested the password change');
-            return back()->with('error', 'Your email does not match the email who requested the password change');
+            return back();
         }
     }
 }
